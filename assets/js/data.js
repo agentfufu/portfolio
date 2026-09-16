@@ -42,9 +42,8 @@ const SITE = {
   // Icons available: github, linkedin, gamepad (itch.io), play (YouTube).
   social: [
     { label: "LinkedIn", url: "https://www.linkedin.com/in/bryanmaillet/", icon: "linkedin" },
-    { label: "Upwork",   url: "https://www.upwork.com/freelancers/~01b90dd8047cd8198e", icon: "upwork" }
-    // GitHub goes here once the portfolio repo is up:
-    // { label: "GitHub",   url: "https://github.com/agentfufu", icon: "github" }
+    { label: "Upwork",   url: "https://www.upwork.com/freelancers/~01b90dd8047cd8198e", icon: "upwork" },
+    { label: "GitHub",   url: "https://github.com/agentfufu", icon: "github" }
   ],
 
   // Small numbers that build trust. Keep them true.
