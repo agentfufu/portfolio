@@ -793,7 +793,7 @@
       const it = PAGE_META.item;
       const desc = (PAGE_META.kind === "project" ? it.summary : it.excerpt) || "";
       meta("name", "description", desc);
-      meta("property", "og:title", it.title + " \u2014 " + SITE.name);
+      meta("property", "og:title", it.title + " - " + SITE.name);
       meta("property", "og:description", desc);
       meta("property", "og:type", PAGE_META.kind === "post" ? "article" : "website");
       if (it.cover) meta("property", "og:image", abs(it.cover) || it.cover);

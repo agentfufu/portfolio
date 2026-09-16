@@ -26,7 +26,7 @@ const SITE = {
   // Canonical address of the live site, no trailing slash, e.g. "https://bryanmaillet.dev".
   // Used for canonical tags, og:url, structured data and the sitemap.
   // Leave empty until you deploy; nothing breaks, the tags are just skipped.
-  url:         "",                                // <<EDIT>> once deployed
+  url:         "https://bryanmaillet.com",
 
   // Make the contact form actually deliver mail.
   // 1. Sign up at https://formspree.io (free tier is fine), create a form.
