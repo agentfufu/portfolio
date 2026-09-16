@@ -11,7 +11,7 @@ const SITE = {
   initials:    "BM",                              // 2 letters for the logo square
   role:        "Unreal Engine Developer",
   headline:    "I build gameplay systems for <em>Unreal Engine</em> games, then make them run fast.",
-  lede:        "Five studios and three Steam releases since 2021, in Unreal Engine 4 and 5. " +
+  lede:        "In Unreal Engine since 2018. Five studios and three Steam releases, in Unreal Engine 4 and 5. " +
                "I build gameplay systems in Blueprint and C++: combat, movement, interaction, " +
                "multiplayer. Then I profile them and make them run.",
   location:    "Orihuela, Spain",                 // city or country, leave "" to hide it
@@ -49,7 +49,7 @@ const SITE = {
   // Small numbers that build trust. Keep them true.
   stats: [
     { value: "3",       label: "Titles shipped on Steam" },
-    { value: "2021",    label: "Working in Unreal since" },
+    { value: "2018",    label: "Working in Unreal since" },
     { value: "UE4 & 5", label: "Engine versions" },
     { value: "PC / VR", label: "Platforms shipped on" }
   ],
@@ -64,7 +64,7 @@ const SITE = {
 const ABOUT = {
   portrait: "assets/img/portrait.svg",             // <<EDIT>> swap for a real photo (jpg/webp)
   paragraphs: [
-    "I'm an Unreal Engine developer. Since 2021 I've worked at five studios on PC, VR and " +
+    "I'm an Unreal Engine developer. Since 2018 I've worked at five studios on PC, VR and " +
     "multiplayer projects. Three of them shipped on Steam. The rest were prototypes.",
 
     "My work sits between design and the engine. I build gameplay systems in Blueprint and " +
@@ -96,15 +96,6 @@ const SKILLS = [
 
 /* -- Experience timeline (About + Resume) ---------------------------------- */
 const TIMELINE = [                                 // newest first
-  {
-    period: "Oct 2021 - Present",
-    role:   "Unreal Engine Developer",
-    org:    "VR-EXODUS",
-    blurb:  "Designed and developed game projects from concept to implementation in Unreal " +
-            "Engine 4 and 5: gameplay programming in Blueprint, core systems, UI and player " +
-            "experience, multiplayer mechanics, prototyping, and performance work.",
-    tags:   ["UE4 / UE5", "Blueprint", "Gameplay"]
-  },
   {
     period: "Dec 2023 - Dec 2024",
     role:   "Unreal Engine 5 Developer",
@@ -140,6 +131,15 @@ const TIMELINE = [                                 // newest first
             "VR level layout, gameplay flow, progression and interaction design, and iteration " +
             "for comfort and immersion.",
     tags:   ["VR", "Level Design", "Game Design"]
+  },
+  {
+    period: "Mar 2018 - Sep 2023",
+    role:   "Unreal Engine Developer",
+    org:    "VR-EXODUS",
+    blurb:  "Designed and developed game projects from concept to implementation in Unreal " +
+            "Engine 4 and 5: gameplay programming in Blueprint, core systems, UI and player " +
+            "experience, multiplayer mechanics, prototyping, and performance work.",
+    tags:   ["UE4 / UE5", "Blueprint", "Gameplay"]
   }
 ];
 
@@ -148,7 +148,7 @@ const TIMELINE = [                                 // newest first
    here any time. An empty list just hides the section.                      */
 const EDUCATION = [
   {
-    period: "2021 - ongoing",
+    period: "2018 - ongoing",
     title:  "Self-taught, on shipped projects",
     org:    "Unreal Engine 4 & 5",
     blurb:  "No formal games programme. I learned Unreal by building in it, prototypes first, " +
@@ -263,14 +263,14 @@ const PROJECTS = [
     title: "Fates Call: A New Beginning",
     year: "2021 - 2022",
     role: "VR level design \u00b7 Rendering",
-    summary: "A VR-only action RPG with sword, bow and magic. I joined at Luthor Studios for " +
+    summary: "A VR-only action RPG with sword, bow and magic. I joined at Luthor Dynamic Studio for " +
              "level design, and for rendering and optimisation on Oculus hardware.",
     cover: "assets/img/projects/fates-call.jpg", coverW: 1600, coverH: 766,
     tags: ["VR", "Unreal Engine", "Level Design", "Optimisation"],
     stack: ["Unreal Engine", "VR / Oculus", "Level Design", "Rendering", "Performance"],
     facts: [
       { label: "Released", value: "30 November 2020. I joined after release" },
-      { label: "Studio",   value: "Luthor Studios" },
+      { label: "Studio",   value: "Luthor Dynamic Studio" },
       { label: "Engine",   value: "Unreal Engine" },
       { label: "Platform", value: "PC VR: SteamVR (Vive, Index, Oculus, Windows MR)" },
       { label: "Modes",    value: "Single-player, VR only, fully voiced" },
@@ -288,7 +288,7 @@ const PROJECTS = [
     ],
     body: `
       <h3>The game</h3>
-      <p>Fates Call: A New Beginning is a VR-only action RPG from Luthor Studios, released on Steam
+      <p>Fates Call: A New Beginning is a VR-only action RPG from Luthor Dynamic Studio, released on Steam
       on 30 November 2020. You play Talos, summoned by ancient spirits, fighting through a fully
       voiced story with sword, bow and magic. It supports Vive, Index, Oculus and Windows Mixed
       Reality.</p>
@@ -389,14 +389,14 @@ const TESTIMONIALS = [
             "What sets Bryan apart is his impressive versatility—he is highly skilled " +
             "across multiple disciplines, from programming and technical tasks to 3D " +
             "modeling and animation. I highly recommend him for any development team.",
-    author: "Repeat client",
-    role:   "Unreal Engine projects, hired multiple times",
+    author: "Julien M.",
+    role:   "Repeat client, Unreal Engine projects",
     source: "Upwork" },
 
   { quote:  "Efficient and amazing. Focused and straightforward. Gets the jobs down " +
             "with full effort and quality. Highly recommend",
-    author: "Client",
-    role:   "",
+    author: "Openlane Studios",
+    role:   "Client",
     source: "Upwork" }
   // <<EDIT>> a third review would finish this off - two is a pattern,
   // three is a track record. The layout adjusts to the number on its own.
