@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found - Bryan Maillet</title>
+<meta name="description" content="That page doesn't exist. Here's the way back to the projects, the gallery and the contact page.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0b0c0f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="author" content="Bryan Maillet">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" data-site-initials>BM</span>
+      <span class="brand__name" data-site-name>Bryan Maillet</span>
+    </a>
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="devlog.html">Devlog</a>
+      <a href="services.html">Services</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle theme"></button>
+      <button class="icon-btn nav__toggle" id="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Error 404</p>
+      <h1>This page doesn't exist.</h1>
+      <p class="lede" style="max-width:var(--max-prose)">
+        Either the link was wrong or something moved. Nothing is broken on your end.
+        Here's where the actual content lives.
+      </p>
+      <div class="btn-row" style="margin-top:28px">
+        <a class="btn" href="projects.html">See the projects</a>
+        <a class="btn btn--ghost" href="index.html">Back to home</a>
+        <a class="btn btn--ghost" href="contact.html">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt section--tight">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Selected work</p>
+          <h2>Try one of these</h2>
+        </div>
+      </div>
+      <div class="grid grid--3" data-render="featured-projects"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__col">
+        <a class="brand" href="index.html">
+          <span class="brand__mark" data-site-initials>BM</span>
+          <span class="brand__name" data-site-name>Bryan Maillet</span>
+        </a>
+        <p class="footer__blurb" id="footer-blurb"></p>
+        <div class="socials" data-socials></div>
+      </div>
+      <div class="footer__col">
+        <h4>Site</h4>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="devlog.html">Devlog</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer__col">
+        <h4>Elsewhere</h4>
+        <div id="footer-social-links"></div>
+        <a data-email-link="text" href="#">email</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; <span data-year></span> <span data-site-name></span></span>
+      <span>Hand-built with HTML, CSS &amp; JavaScript.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

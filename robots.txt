@@ -1,0 +1,5 @@
+# Interim robots.txt. Once `url` is set in assets/js/data.js, run
+#   node tools/gen-sitemap.mjs
+# and this file is regenerated with the Sitemap: line pointing at sitemap.xml.
+User-agent: *
+Allow: /
