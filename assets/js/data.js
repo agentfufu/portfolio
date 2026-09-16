@@ -15,7 +15,7 @@ const SITE = {
                "I build gameplay systems in Blueprint and C++: combat, movement, interaction, " +
                "multiplayer. Then I profile them and make them run.",
   location:    "Orihuela, Spain",                 // city or country, leave "" to hide it
-  email:       "Bfufu@protonmail.com",
+  email:       "contact@bryanmaillet.com",
   status:      "Open to contract work and studio roles",
   statusLive:  true,                              // shows the pulsing dot
 
