@@ -32,7 +32,7 @@ const SITE = {
   // 1. Sign up at https://formspree.io (free tier is fine), create a form.
   // 2. Paste the endpoint it gives you, e.g. "https://formspree.io/f/xdkoblqz".
   // While this is empty the form falls back to opening the visitor's mail app.
-  formEndpoint: "",                               // <<EDIT>>
+  formEndpoint: "https://formspree.io/f/mzezplye",
 
   footerBlurb: "Unreal Engine developer working on gameplay systems, multiplayer and " +
                "performance across PC and VR titles.",
