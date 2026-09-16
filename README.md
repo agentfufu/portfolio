@@ -178,14 +178,16 @@ That writes `sitemap.xml` and `robots.txt` covering every page, project and post
 
 ## Your CV
 
-`assets/cv/cv.pdf` is generated from `resume.html`, which is print-styled to fit two pages.
-Re-run this after changing anything in `TIMELINE`, `EDUCATION`, `SKILLS` or `PROJECTS`:
+`assets/cv/cv.pdf` is generated from `resume.html`, which is print-styled to fit two pages,
+so the CV can never drift from the site. Re-run this after changing anything in `TIMELINE`,
+`EDUCATION`, `SKILLS`, `PROJECTS` or the contact details:
 
 ```
-"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --headless=new --disable-gpu --no-pdf-header-footer --print-to-pdf="%CD%ssets\cv\cv.pdf" "file:///%CD:\=/%/resume.html"
+python tools/make-cv.py
 ```
 
-(Or just open `resume.html` in a browser, Ctrl+P, Save as PDF, and save it over `assets/cv/cv.pdf`.)
+It finds Edge or Chrome, renders the page headless and writes the PDF. (Fallback: open
+`resume.html` in a browser, Ctrl+P, Save as PDF, over `assets/cv/cv.pdf`.)
 The path lives in `cv` in `data.js`; set it to `""` and the "Download CV" buttons hide themselves.
 
 ## Publishing it
@@ -245,6 +247,7 @@ robots.txt             regenerated with sitemap.xml once `url` is set
 tools/make-og.py       regenerates the link preview image
 tools/make-icons.py    regenerates the app icons
 tools/make-banner.py   regenerates the LinkedIn cover image
+tools/make-cv.py       renders resume.html to assets/cv/cv.pdf
 tools/make-cards.py    draws placeholder project covers
 tools/stamp-dims.py    writes real image sizes into data.js
 tools/gen-sitemap.mjs  regenerates sitemap.xml + robots.txt
