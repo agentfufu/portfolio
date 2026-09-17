@@ -1,22 +1,8 @@
 #!/usr/bin/env python3
 """
-stamp-dims.py - writes each image's real pixel size into data.js.
-
-    python tools/stamp-dims.py
-
-Why: the gallery is a masonry layout, so every shot keeps its own aspect ratio.
-Without width/height on the <img>, the browser reserves no space until the file
-arrives and the whole grid jumps as the images land. With them it reserves the
-right box up front and nothing moves. Project covers get the same treatment for
-the same reason - the image at the top of a project page is the largest thing
-on it, and the covers are not all the same shape.
-
-The tool reads the actual files and adds (or corrects) `w:`/`h:` on each
-GALLERY `src:` line, and `coverW:`/`coverH:` on each project's `cover:` line.
-Safe to re-run - it only touches those keys, and leaves an entry alone if the
-numbers are already right.
-
-Run it after adding images to assets/img/gallery/ or assets/img/projects/.
+Writes each image's real pixel size into data.js (w/h on gallery entries,
+coverW/coverH on projects) so the browser can reserve space before the file loads.
+Run after adding images. Needs Pillow.
 """
 import io
 import os

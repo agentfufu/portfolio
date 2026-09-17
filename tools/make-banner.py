@@ -1,24 +1,7 @@
 #!/usr/bin/env python3
 """
-make-banner.py - renders assets/img/linkedin-banner.png, the 1584x396 cover
-image at the top of a LinkedIn profile.
-
-    python tools/make-banner.py
-
-Same visual language as the link preview card (make-og.py), so a recruiter
-jumping from LinkedIn to the site lands somewhere that looks like the same
-person.
-
-Two things drive the layout:
-
-  - The profile photo sits over the BOTTOM-LEFT of the banner on desktop, so
-    that corner is left deliberately empty.
-  - Mobile crops the sides, so nothing important goes near the left or right
-    edge either.
-
-Everything that matters therefore lives in the middle band. Name and role are
-read from data.js; the credits line is spelled out below - edit CREDITS when
-you ship something new.
+Renders assets/img/linkedin-banner.png (1584x396). Bottom-left stays empty for the
+profile photo. Edit CREDITS below when shipping something new. Needs Pillow.
 """
 import os
 import re

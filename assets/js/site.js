@@ -1,7 +1,4 @@
-/* =============================================================================
-   site.js — page chrome + rendering. You shouldn't need to edit this file;
-   the content all lives in data.js.
-   ============================================================================= */
+// Rendering and interactions. Content comes from data.js.
 (function () {
   "use strict";
 
@@ -50,7 +47,7 @@
   const byDateDesc = (a, b) => (a.date < b.date ? 1 : -1);
   const pills = (arr) => (arr || []).map((t) => `<span class="pill">${esc(t)}</span>`).join("");
 
-  // Flattens whatever a card should be findable by into one lowercase haystack.
+  // lowercase search haystack for a card
   const haystack = (...parts) => esc(parts.flat().filter(Boolean).join(" ").toLowerCase());
 
   /* -- theme --------------------------------------------------------------- */
@@ -110,13 +107,13 @@
     $$("[data-site-name]").forEach((n) => (n.textContent = SITE.name));
     $$("[data-site-initials]").forEach((n) => (n.textContent = SITE.initials));
     $$("[data-year]").forEach((n) => (n.textContent = new Date().getFullYear()));
-    // Hide the CV buttons until an actual file is set, so nothing links to a 404.
+    // no CV file: hide the buttons
     $$("[data-cv-link]").forEach((n) => {
       if (SITE.cv) n.setAttribute("href", SITE.cv);
       else n.remove();
     });
 
-    // No profile links configured: remove the cards/columns that would be empty.
+    // no social links: remove the empty column
     if (!SITE.social.length) {
       $$("[data-socials]").forEach((n) => {
         const card = n.closest(".card");
@@ -182,8 +179,7 @@
       </article>`;
   }
 
-  // One gallery thumbnail. data-shot is the index into GALLERY, which is what
-  // the lightbox reads; data-tags/data-search let initCatalog filter them.
+  // data-shot = index into GALLERY (lightbox); data-tags/data-search (filter)
   function shotButton(g, i) {
     return `
       <button class="shot" type="button" data-shot="${i}"
@@ -245,8 +241,7 @@
     },
 
     "latest-posts": (n) => {
-      // Nothing written yet: hide the whole "Notes from the build" section
-      // rather than advertise an empty devlog on the home page.
+      // no posts: hide the section
       if (!POSTS.length) {
         const section = n.closest("section");
         if (section) section.remove(); else n.remove();
@@ -275,8 +270,7 @@
     },
 
     "testimonials": (n) => {
-      // Nothing to show yet: drop the whole section rather than print a heading
-      // over an empty space.
+      // nothing to show: drop the section
       if (!TESTIMONIALS.length && !UPWORK.stats.length) {
         const section = n.closest("section");
         if (section) section.remove(); else n.remove();
@@ -290,8 +284,7 @@
             <div class="stat__label">${esc(s.label)}</div>
           </div>`).join("")}</div>` : "";
 
-      // One quote in a three-column grid reads as a layout bug, so the columns
-      // follow the number of reviews and a lone quote is centred instead.
+      // 1 review: centred. 2: two columns. 3+: three.
       const n_t = TESTIMONIALS.length;
       const cols = n_t >= 3 ? " grid--3" : n_t === 2 ? " grid--2" : "";
       const solo = n_t === 1 ? "max-width:var(--max-prose);margin-left:auto;margin-right:auto;" : "";
@@ -306,7 +299,6 @@
             </figcaption>
           </figure>`).join("")}</div>` : "";
 
-      // The link is the point: it's what turns a claim into something checkable.
       const verify = UPWORK.url ? `
         <div class="btn-row" style="margin-top:clamp(22px,3vw,34px)">
           <a class="btn btn--ghost btn--sm" href="${esc(UPWORK.url)}" target="_blank" rel="noopener noreferrer">
@@ -341,7 +333,7 @@
 
     "posts": (n) => {
       n.innerHTML = POSTS.slice().sort(byDateDesc).map(postCard).join("")
-        || '<p class="empty">Nothing here yet — the first posts are being written.</p>';
+        || '<p class="empty">Nothing here yet. First posts are on the way.</p>';
       initCatalog(n, "post", "post", "posts");
     },
 
@@ -352,13 +344,12 @@
         n.innerHTML = '<div class="wrap section"><h1>Project not found</h1><p class="lede" style="margin-top:14px">That link points at something that isn\'t here.</p><p style="margin-top:24px"><a class="btn" href="projects.html">All projects</a></p></div>';
         return;
       }
-      document.title = p.title + " — " + SITE.name;
+      document.title = p.title + " - " + SITE.name;
       PAGE_META = { kind: "project", item: p };
       const links = (p.links || []).map((l, i) =>
         `<a class="btn ${i ? "btn--ghost" : ""}" href="${esc(l.url)}"${/^https?:/.test(l.url) ? ' target="_blank" rel="noopener noreferrer"' : ""}>${esc(l.label)} ${icon(/^https?:/.test(l.url) ? "external" : "arrow")}</a>`).join("");
 
-      // Gallery shots tagged with this project's title get their own strip
-      // further down the page — same lightbox, no duplicated list to maintain.
+      // gallery shots tagged with the project title
       const shots = GALLERY
         .map((g, i) => ({ g, i }))
         .filter(({ g }) => (g.tags || []).includes(p.title));
@@ -422,7 +413,7 @@
         n.innerHTML = '<div class="wrap section"><h1>Post not found</h1><p class="lede" style="margin-top:14px">That link points at something that isn\'t here.</p><p style="margin-top:24px"><a class="btn" href="devlog.html">All posts</a></p></div>';
         return;
       }
-      document.title = p.title + " — " + SITE.name;
+      document.title = p.title + " - " + SITE.name;
       PAGE_META = { kind: "post", item: p };
       const prev = list[i + 1], next = list[i - 1];
       n.innerHTML = `
@@ -495,7 +486,7 @@
 
     "gallery": (n) => {
       n.innerHTML = GALLERY.map(shotButton).join("")
-        || '<p class="empty">Screenshots are being put together — the shipped work is on the <a href="projects.html">projects page</a> in the meantime.</p>';
+        || '<p class="empty">Screenshots are being put together. The shipped work is on the <a href="projects.html">projects page</a> in the meantime.</p>';
       initCatalog(n, "shot", "image", "images");
       initLightbox(n);
     },
@@ -527,7 +518,7 @@
   function initCatalog(grid, prefix, noun, nounPlural) {
     const cards = $$("[data-search]", grid);
     if (!cards.length) {
-      // Nothing to search: take the whole bar away rather than leave dead controls.
+      // nothing to search: remove the bar
       [prefix + "-filters", prefix + "-count"].forEach((id) => { const n = el(id); if (n) n.remove(); });
       const box = el(prefix + "-search");
       if (box) { const b = box.closest(".catalog-bar"); (b || box).remove(); }
@@ -572,7 +563,7 @@
       input.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && input.value) { e.stopPropagation(); input.value = ""; q = ""; apply(); }
       });
-      // "/" focuses search from anywhere, the way most doc sites behave.
+      // "/" focuses search
       document.addEventListener("keydown", (e) => {
         if (e.key !== "/" || e.metaKey || e.ctrlKey || e.altKey) return;
         const t = e.target;
@@ -637,8 +628,7 @@
     const img = $("img", box), cap = $("figcaption", box);
     let idx = 0;
 
-    // Step through the shots actually on screen, so the arrows stay in step
-    // with the tag filter — and so a project page only cycles its own strip.
+    // only cycle through visible shots (respects the filter / project strip)
     const visible = () => $$("[data-shot]", grid).filter((b) => !b.hidden);
 
     const show = (i) => {
@@ -788,7 +778,7 @@
     };
     const abs = (path) => (!base ? "" : /^https?:/.test(path) ? path : base + "/" + String(path).replace(/^\.?\//, ""));
 
-    // Detail pages describe themselves rather than inheriting the generic copy.
+    // detail pages set their own meta
     if (PAGE_META) {
       const it = PAGE_META.item;
       const desc = (PAGE_META.kind === "project" ? it.summary : it.excerpt) || "";

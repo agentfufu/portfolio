@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Portfolio — global stylesheet
+   Portfolio stylesheet
    1. Tokens          5. Buttons & pills      9.  Timeline
    2. Reset & base    6. Cards & grids        10. Forms
    3. Layout          7. Hero                 11. Gallery / lightbox
@@ -319,8 +319,7 @@ p { text-wrap: pretty; }
 .stat__value { font-family: var(--font-display); font-size: var(--t-xl); font-weight: 600; letter-spacing: -0.03em; }
 .stat__label { font-size: var(--t-xs); color: var(--ink-3); margin-top: 4px; }
 
-/* Client reviews. The quote mark is decorative and sits behind the text, so it
-   is drawn with a pseudo-element rather than typed into the content. */
+/* review cards */
 .quote { padding: 26px 24px; }
 .quote blockquote {
   margin: 0 0 18px; position: relative; color: var(--ink-2);
@@ -447,10 +446,10 @@ p { text-wrap: pretty; }
 .form__status--error { border-color: var(--danger); background: var(--danger-soft); color: var(--danger); }
 .field.is-invalid input, .field.is-invalid textarea, .field.is-invalid select { border-color: var(--danger); }
 .field.is-invalid label { color: var(--danger); }
-/* Honeypot: off-screen for people, irresistible to bots. */
+/* honeypot */
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
-/* Filtering toggles [hidden]; grid/flex children would otherwise ignore it. */
+/* [hidden] has to beat display:grid/flex */
 [hidden] { display: none !important; }
 
 .contact-line { display: flex; align-items: center; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line-soft); }
@@ -459,7 +458,7 @@ p { text-wrap: pretty; }
 .contact-line strong { font-weight: 500; font-size: var(--t-sm); }
 
 /* -- 11. Gallery & lightbox ---------------------------------------------- */
-/* The "At a glance" table on a project page: label above value, one per row. */
+/* project facts table */
 .facts { margin-top: 14px; font-size: var(--t-sm); }
 .facts dt {
   font: 500 var(--t-xs)/1 var(--font-mono); color: var(--ink-3);
@@ -533,7 +532,7 @@ p { text-wrap: pretty; }
   @page { margin: 14mm 12mm; }
   .site-header, .site-footer, .no-print { display: none !important; }
   body { background: #fff; color: #000; }
-  /* Scroll-reveal never fires in print (nothing scrolls), so force everything visible. */
+  /* print: no scroll, so show everything */
   [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
   html { font-size: 12.5px; }
   .section, .page-head { padding-block: 8px; }

@@ -1,16 +1,7 @@
 #!/usr/bin/env python3
 """
-make-cv.py - renders resume.html to assets/cv/cv.pdf, the file behind the
-"Download CV" buttons.
-
-    python tools/make-cv.py
-
-It opens the local resume page in a headless Edge or Chrome, lets the
-JavaScript render the content from data.js, and prints it to PDF. So the CV
-is generated from the same data as the site and can never drift from it.
-
-Re-run it after any change to data.js that shows on the resume page: a new
-job, a date, a project, the email.
+Renders resume.html to assets/cv/cv.pdf with headless Edge/Chrome.
+Run after changing anything that shows on the resume.
 """
 import os
 import subprocess

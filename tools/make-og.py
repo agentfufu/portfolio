@@ -1,15 +1,7 @@
 #!/usr/bin/env python3
 """
-make-og.py - renders assets/img/og.png, the image that shows up when someone
-pastes a link to the site in Slack, Discord, LinkedIn, X or iMessage.
-
-    python tools/make-og.py
-
-Why a PNG and not the SVG that was here before: no social platform renders SVG
-for og:image. An SVG card silently shows as a bare grey link everywhere.
-
-Re-run it whenever you change your name, role or accent colour in data.js -
-the text is read straight out of assets/js/data.js.
+Renders assets/img/og.png (1200x630), the link preview image.
+Reads name, role and headline from data.js. Needs Pillow.
 """
 import os
 import re

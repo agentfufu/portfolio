@@ -1,14 +1,7 @@
 #!/usr/bin/env python3
 """
-make-cards.py - generates a cover card for every project in data.js that
-doesn't have a real image yet.
-
-    python tools/make-cards.py            # only makes missing ones
-    python tools/make-cards.py --force    # redraws all of them
-
-These are stand-ins, not the goal. A real screenshot of the thing you built
-beats a generated card every time - drop a .jpg into assets/img/projects/ and
-point the project's `cover` at it, and this script will leave it alone.
+Draws a placeholder cover for any project whose cover is a .png that doesn't exist yet.
+.jpg covers are real screenshots and are left alone. --force redraws the .png ones.
 """
 import os
 import re

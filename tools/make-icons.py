@@ -1,17 +1,7 @@
 #!/usr/bin/env python3
 """
-make-icons.py - renders the PNG app icons that site.webmanifest and iOS point at.
-
-    python tools/make-icons.py
-
-The SVG favicon covers browser tabs, but nothing else: Android's "add to home
-screen", iOS's apple-touch-icon and the install prompt all need real PNGs, and
-silently fall back to a screenshot of the page without them.
-
-Initials and accent colour are read from assets/js/data.js, so this stays in
-step with the rest of the site - re-run it if you change either.
-
-Writes: assets/img/icon-192.png, icon-512.png, apple-touch-icon.png
+Renders the PNG app icons (192, 512, apple-touch) from the initials in data.js.
+Needs Pillow.
 """
 import os
 import re

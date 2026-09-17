@@ -1,9 +1,4 @@
-/* =============================================================================
-   data.js: THIS IS THE ONLY FILE YOU NEED TO EDIT TO CHANGE THE CONTENT.
-   Everything on the site (projects, devlog posts, gallery, services, CV) is
-   generated from the lists below. Keep the commas and quotes where they are.
-   Placeholder text is marked with  <<EDIT>>  so you can search for them.
-   ============================================================================= */
+// All site content. Everything on the pages is rendered from the objects below.
 
 /* -- Who you are ----------------------------------------------------------- */
 const SITE = {
@@ -19,34 +14,25 @@ const SITE = {
   status:      "Open to contract work and studio roles",
   statusLive:  true,                              // shows the pulsing dot
 
-  // Put your PDF at assets/cv/cv.pdf and set this to "assets/cv/cv.pdf".
-  // While it's empty, the "Download CV" buttons are hidden (no dead links).
+  // empty = CV buttons hidden
   cv:          "assets/cv/cv.pdf",
 
-  // Canonical address of the live site, no trailing slash, e.g. "https://bryanmaillet.dev".
-  // Used for canonical tags, og:url, structured data and the sitemap.
-  // Leave empty until you deploy; nothing breaks, the tags are just skipped.
+  // canonical base, no trailing slash
   url:         "https://bryanmaillet.com",
 
-  // Make the contact form actually deliver mail.
-  // 1. Sign up at https://formspree.io (free tier is fine), create a form.
-  // 2. Paste the endpoint it gives you, e.g. "https://formspree.io/f/xdkoblqz".
-  // While this is empty the form falls back to opening the visitor's mail app.
+  // empty = form falls back to mailto
   formEndpoint: "https://formspree.io/f/mzezplye",
 
   footerBlurb: "Unreal Engine developer working on gameplay systems, multiplayer and " +
                "performance across PC and VR titles.",
 
-  // <<EDIT>> Paste your real profile URLs here. Empty list = the "Elsewhere"
-  // sections hide themselves, which is better than links that go nowhere.
-  // Icons available: github, linkedin, gamepad (itch.io), play (YouTube).
+  // icons: github, linkedin, upwork, gamepad, play
   social: [
     { label: "LinkedIn", url: "https://www.linkedin.com/in/bryanmaillet/", icon: "linkedin" },
     { label: "Upwork",   url: "https://www.upwork.com/freelancers/~01b90dd8047cd8198e", icon: "upwork" },
     { label: "GitHub",   url: "https://github.com/agentfufu", icon: "github" }
   ],
 
-  // Small numbers that build trust. Keep them true.
   stats: [
     { value: "3",       label: "Titles shipped on Steam" },
     { value: "2018",    label: "Working in Unreal since" },
@@ -54,7 +40,6 @@ const SITE = {
     { value: "PC / VR", label: "Platforms shipped on" }
   ],
 
-  // Scrolling strip under the hero.
   marquee: ["Unreal Engine 5", "Unreal Engine 4", "Blueprint", "C++", "Gameplay Systems",
             "Multiplayer", "UMG", "Prototyping", "VR / Oculus", "Rendering & Optimisation",
             "Profiling", "Niagara VFX"]
@@ -62,7 +47,7 @@ const SITE = {
 
 /* -- About page ------------------------------------------------------------ */
 const ABOUT = {
-  portrait: "assets/img/portrait.svg",             // <<EDIT>> swap for a real photo (jpg/webp)
+  portrait: "assets/img/portrait.svg",
   paragraphs: [
     "I'm an Unreal Engine developer. Since 2018 I've worked at five studios on PC, VR and " +
     "multiplayer projects. Three of them shipped on Steam. The rest were prototypes.",
@@ -144,8 +129,6 @@ const TIMELINE = [                                 // newest first
 ];
 
 /* -- Education / training (Resume page) ------------------------------------ */
-/* Same shape as the timeline entries. Add a school, programme or certificate
-   here any time. An empty list just hides the section.                      */
 const EDUCATION = [
   {
     period: "2018 - ongoing",
@@ -159,13 +142,7 @@ const EDUCATION = [
 ];
 
 /* -- Projects -------------------------------------------------------------- */
-/* slug   : used in the URL - project.html?p=slug. Keep it lowercase, no spaces.
-   cover  : path to the image
-   tags   : also used as the filter buttons on the projects page
-   facts  : the "At a glance" table on the project page - label/value pairs.
-            Leave the field out and the table simply doesn't appear.
-   featured: true = shows on the home page (pick 3)
-   body   : the long write-up, plain HTML                                      */
+// slug -> project.html?p=slug. featured = shown on the home page. facts = the 'At a glance' table.
 const PROJECTS = [
   {
     slug: "wildlife-warfare",
@@ -311,13 +288,7 @@ const PROJECTS = [
 ];
 
 /* -- Devlog ---------------------------------------------------------------- */
-/* date: YYYY-MM-DD. Posts are sorted newest first automatically.
-   Read at post.html?id=slug
-
-   <<EDIT>> Empty for now. The devlog page shows a short "nothing here yet"
-   note rather than fake posts. Good first subjects, based on what you've
-   actually done: HLODs on an interior scene, holding frame rate on Oculus,
-   or designing a map that works for two asymmetric teams.                    */
+// date: YYYY-MM-DD, newest first. body is HTML. post.html?id=slug
 const POSTS = [];
 
 /* -- Services -------------------------------------------------------------- */
@@ -371,17 +342,7 @@ const FAQ = [
 ];
 
 /* -- Testimonials ---------------------------------------------------------- */
-/* Client reviews. This is the one kind of proof you didn't write yourself, so
-   it carries more weight than anything else on the site. While the list is
-   empty the whole section disappears from the services page - an empty
-   testimonials block looks worse than no testimonials at all.
-
-   quote  : the review, copied exactly as the client wrote it. Don't tidy it
-            up: the typos are part of why it reads as real.
-   author : who said it. "Client" on its own is fine under an NDA - the verify
-            link below is what makes it checkable.
-   role   : their company, or what the job was, e.g. "VR training app".
-   source : where it came from, e.g. "Upwork". Shown next to the name.        */
+// quote/author/role/source. Empty list hides the section.
 const TESTIMONIALS = [
   { quote:  "I have hired Bryan multiple times over the years to assist with various " +
             "Unreal Engine projects, and he has consistently exceeded expectations. He is " +
@@ -398,20 +359,11 @@ const TESTIMONIALS = [
     author: "Openlane Studios",
     role:   "Client",
     source: "Upwork" }
-  // <<EDIT>> a third review would finish this off - two is a pattern,
-  // three is a track record. The layout adjusts to the number on its own.
 ];
 
-/* The verified-work numbers shown above the reviews, and the profile they come
-   from. Numbers a stranger can go and check are worth more than adjectives.
-
-   Leave `url` empty and the verify link is hidden; empty `stats` hides the
-   number strip. If both `stats` and TESTIMONIALS are empty the whole section
-   goes away.                                                                 */
+// stats strip above the reviews; url = verify link
 const UPWORK = {
   url:   "https://www.upwork.com/freelancers/~01b90dd8047cd8198e",
-  // Order matters: the success score is the strongest of the three, the money
-  // is the weakest on its own. Lead with the score.
   stats: [
     { value: "100%",          label: "Job Success Score" },
     { value: "536",           label: "Hours worked" },
@@ -420,13 +372,8 @@ const UPWORK = {
 };
 
 /* -- Gallery --------------------------------------------------------------- */
-/* Screenshots from the shipped titles. Each one carries a `tags` list, which
-   becomes the filter chips at the top of the gallery page, and the project
-   pages pull their own strip of shots by matching the project title.
-
-   To add your own: drop a .jpg or .webp in assets/img/gallery/ (about 1600px
-   wide is plenty), then add a line here. Order in this list is the order on
-   the page.                                                                 */
+// tags become the filter chips; a tag equal to a project title puts the shot on that project page.
+// w/h come from tools/stamp-dims.py
 const GALLERY = [
   { src: "assets/img/gallery/01-fates-call-02.jpg", w: 1600, h: 766,
     alt: "Coastal fortress and harbour under a bright sky in Fates Call",
